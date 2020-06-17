@@ -59,3 +59,7 @@ x_tidy<-cbind(y,subjects,x_mean_std)
 x_tidy<-dplyr::group_by(x_tidy,y,subjectnumber)
 x_tidy<-dplyr::summarise_all(x_tidy,mean)
 x_tidy<-as.data.frame(x_tidy)
+#--------------------------------------------------------------
+#Store tidy data table:
+out_file_path<-paste0(datasetdir,"/x_tidy.txt")
+write.table(x_tidy,file = out_file_path,row.names = FALSE)
